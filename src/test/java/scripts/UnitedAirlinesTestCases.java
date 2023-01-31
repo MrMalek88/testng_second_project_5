@@ -2,6 +2,7 @@ package scripts;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import utilities.DropdownHandler;
 
 public class UnitedAirlinesTestCases extends UnitedAirlinesBaseTest{
 
@@ -76,14 +77,25 @@ public class UnitedAirlinesTestCases extends UnitedAirlinesBaseTest{
 
         unitedAirlinesBasePage.oneWayLabel.get(0).click();
 
-        unitedAirlinesBasePage.fromInputBox.sendKeys("Chicago, IL, US (ORD)");
-        unitedAirlinesBasePage.toInputBox.sendKeys("Miami, FL, US (MIA)");
-        unitedAirlinesBasePage.datesBox.sendKeys("Feb 28");
-        //unitedAirlinesBasePage.travelerButton.click();
-        //unitedAirlinesBasePage.travelerSelector.sendKeys("2");
-        //unitedAirlinesBasePage.cabinDropdown.click();
-        //unitedAirlinesBasePage.businessOrFirst.click();
-        //unitedAirlinesBasePage.findFlightsButton.click();
-    }
+        unitedAirlinesBasePage.oneWayLabel.get(0).click();
 
+        unitedAirlinesBasePage.fromInputBox.clear();
+        unitedAirlinesBasePage.fromInputBox.sendKeys("Chicago, IL, US (ORD)");
+
+        unitedAirlinesBasePage.toInputBox.clear();
+        unitedAirlinesBasePage.toInputBox.sendKeys("Miami, FL, US (MIA)");
+
+        unitedAirlinesBasePage.datesBox.click();
+        unitedAirlinesBasePage.datesBox.clear();
+        unitedAirlinesBasePage.datesBox.sendKeys("Feb 28");
+
+        unitedAirlinesBasePage.travelerButton.click();
+        unitedAirlinesBasePage.travelerSelector.click();
+
+        DropdownHandler.clickOnDropdownOption(unitedAirlinesBasePage.cabinType, unitedAirlinesBasePage.cabinDropdownOptions, "Business or First");
+
+        unitedAirlinesBasePage.findFlightsButton.click();
+
+        Assert.assertEquals(unitedAirlinesBasePage.result.getText(), "DEPART ON: February 28");
     }
+}

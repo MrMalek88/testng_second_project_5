@@ -53,20 +53,21 @@ public class UnitedAirlinesBasePage {
     @FindBy(id = "DepartDate")
     public WebElement datesBox;
 
-    @FindBy(id = "passengerMenuId")
-    public List<WebElement> travelSelector;
+    @FindBy(xpath = "//button[@aria-labelledby='stuff']")
+    public WebElement travelerButton;
 
-    @FindBy(xpath = "//*[@id=\'cabinType\']/span")
-    public List<WebElement> cabinDropdown;
+    @FindBy(xpath = "//button[@aria-label='Substract one Adult']")
+    public WebElement travelerSelector;
 
+    @FindBy(id = "cabinType")
+    public WebElement cabinType;
 
-    @FindBy(xpath = "//*[@id=\"cabinType\"]")
-    public List<WebElement> businessFirstClassDropdown;
+    @FindBy(css = "li[id*='cabinType_item']")
+    public List<WebElement> cabinDropdownOptions;
 
-    @FindBy(css = "button[class*=w8CX7]")
-    public List<WebElement> travelButton;
+    @FindBy(xpath = "//button[@aria-label='Find flights']")
+    public WebElement findFlightsButton;
 
-    @FindBy(xpath = "[@id=\"bookFlightForm\"]/div[5]/div/div[1]/div/div/div[2]/button[1]")
-    public List<WebElement> fingFlightsButton;
-
+    @FindBy(xpath = "//div[@class='app-components-Shopping-ColumnSortResultHeader-styles__headerLeft--3_5-b']")
+    public WebElement result;
 }
