@@ -96,6 +96,6 @@ public class UnitedAirlinesTestCases extends UnitedAirlinesBaseTest{
 
         unitedAirlinesBasePage.findFlightsButton.click();
 
-        Assert.assertEquals(unitedAirlinesBasePage.result.getText(), "DEPART ON: February 28");
+        Assert.assertEquals(unitedAirlinesBasePage.result.getText(), "DEPART ON: March 31");
     }
 }
